@@ -10,3 +10,17 @@ const sidebarToggleButtonOnClickHandle = () => {
         sidebarToggleButton.innerHTML = `◀`
     }
 }
+
+const sidebarMenuOnClickHandle = (target) => {
+    switch(target.innerHTML) {
+        case "시작하기":
+            Routes.getInstance().routeState = "welcome";
+            break;
+        case "TODOLIST":
+            Routes.getInstance().routeState = "todolist"
+            break;
+    }
+
+    Routes.getInstance().show();
+    sidebarToggleButtonOnClickHandle();
+}
