@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #333;
+}
+
+.container {
+    position: relative;
+    margin: 100px auto;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    padding: 10px;
+    width: 500px;
+    height: 700px;
+    background-color: #fafafa;
+    overflow: hidden; 
+}
+
+.btn {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    padding: 5px 10px;
+    background-color: white;
+    font-weight: 600;
+    cursor: pointer; /*버튼위에 마우스 이동시 손가락 표시*/
+}
+
+.btn:active { /*버튼 클릭시 변경 이벤트*/
+    background-color: #eee;
+}
+
