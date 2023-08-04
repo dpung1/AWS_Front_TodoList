@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/modal.css">
     <link rel="stylesheet" href="./css/sidebar.css">
     <link rel="stylesheet" href="./css/welcome.css">
     <link rel="stylesheet" href="./css/todolist.css">
@@ -23,11 +24,11 @@
                 </ul>
             </aside>
             <main class="main-container"> <!-- 메인 부분 -->
-                <div class="welcome-page-container invisible">
+                <div class="welcome-page-container">
                     <h1 class="welcome-page-title">TODOLIST</h1>
                     <button class="write-link-button" onclick="goToWriteOnClickHandle();">Go to write</button>
                 </div>
-                <div class="todo-page-container"> <!-- ToDoPage 부분 -->
+                <div class="todo-page-container invisible"> <!-- ToDoPage 부분 -->
                     <header> <!-- ToDoPage 머리 부분 -->
                         <div class="todolist-header-items">
                             <input type="text" class="text-input w-f" 
@@ -38,32 +39,49 @@
                         </div>
                     </header>
                     <ul class="todolist-main-container"> <!-- ToDoPageList 부분 -->
-                        <li class="todolist-items"> <!-- ToDoList 부분 -->
-                            <div class="item-left">
-                                <input type="checkbox" id="complet-chkbox1" class="complet-chkboxs">
-                                <label for="complet-chkbox1"></label>
-                            </div>
-                            <div class="item-center">
-                                <pre class="todolist-contaent">오늘 할 일을 출력합니다.</pre>
-                            </div>
-                            <div class="item-right">
-                                <p class="todolist-dete">2023-08-03</p>
-                                <div class="todolist-item-buttons">
-                                    <button class="btn btn-edit">수정</button>
-                                    <button class="btn btn-remove">삭제</button>
-                                </div>
-                            </div>
-                        </li>
+                        
                     </ul>
                 </div>
             </main>
+            <div class="modal invisible">
+                <div class="modal-container">
+                    <header class="modal-header">
+                        <h1 class="modal-title">
+                            제목
+                        </h1>
+                    </header>
+                    <main class="modal-main">
+                        <p class="modal-message">
+                            메세지 내용
+                        </p>
+                        <input type="text" class="text-input w-f">
+                    </main>
+                    <footer class="modal-footer">
+                        <button class="btn">확인</button>
+                        <button class="btn">닫기</button>
+                    </footer>
+                </div>
+            </div>
         </div>
     </div>
     <script src="./js/index.js"></script>
     <script src="js/utils.js"></script>
     <script src="./js/routes.js"></script>
+    <script src="./js/modal.js"></script>
     <script src="./js/sidebar.js"></script>
     <script src="./js/welcome.js"></script>
     <script src="./js/todolist.js"></script>
 </body>
 </html>
+
+
+<!-- TodoList Project-->
+<!-- 필수 구현 항목 -->
+<!-- 1. 페이지 이동 -->
+<!-- 2. 사이드바 생성 -->
+<!-- 3. MODAL 사용 -->
+<!-- 4. TODO CRUD (추가, 수정, 삭제) -->
+
+<!-- 추가 구현 항목 -->
+<!-- 1. 완료, 미완료, 전체 (필터링) -->
+<!-- 2. 캘린더, 날짜별 TODO 저장 -->

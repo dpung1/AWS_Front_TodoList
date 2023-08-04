@@ -35,7 +35,8 @@ const checkedOnChangeHandle = (target) => {
 }
 
 const modifyTodoOnClickHandle = (target) => {
-
+    openModal();
+    modifyModal(TodoListService.getInstance().getTodoById(target.value));
 }
 
 const deleteTodoOnClickHandle = (target) => {
@@ -82,6 +83,14 @@ class TodoListService {
         localStorage.setItem("todoList", JSON.stringify(this.todoList));
     }
 
+    getTodoById(id) {
+        // console.log(this.todoList);
+        // console.log(this.todoList.filter(todo => todo.id === parseInt(id)));
+        // console.log(this.todoList.filter(todo => todo.id === parseInt(id))[0]);
+
+        return this.todoList.filter(todo => todo.id === parseInt(id))[0];
+    }
+
     addTodo(todoObj) {
         const todo = {
             ...todoObj,
@@ -91,7 +100,7 @@ class TodoListService {
 
         this.saveLocalStorage();
 
-        TodoListService.getInstance().updateTodoList();
+        this.updateTodoList();
 
         this.todoIndex++;
     }
@@ -104,6 +113,18 @@ class TodoListService {
         });
 
         this.saveLocalStorage();
+    }
+
+    setTodo(todoObj) {
+        for(let i = 0; i < this.todoList.length; i++) {
+            if(this.todoList[i].id === todoObj.id) {
+                this.todoList[i] = todoObj;
+                break;
+            }
+        }
+
+        this.saveLocalStorage();
+        this.updateTodoList();
     }
 
     removeTodo(id) {
@@ -131,7 +152,7 @@ class TodoListService {
                         <label for="complet-chkbox1${todo.id}"></label>
                     </div>
                     <div class="item-center">
-                        <pre class="todolist-contaent">${todo.todoContent}</pre>
+                        <pre class="todolist-contant">${todo.todoContent}</pre>
                     </div>
                     <div class="item-right">
                         <p class="todolist-dete">${todo.createDate}</p>
