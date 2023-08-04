@@ -13,7 +13,7 @@
 <body>
     <div id="root">
         <div class="container">
-            <aside class="sidebar">
+            <aside class="sidebar">  <!-- 사이드 영역 부분 --> 
                 <button class="sidebar-toggle-button" 
                     onclick="sidebarToggleButtonOnClickHandle();">▶</button>
                 <h1 class="sidebar-logo">MyToDo</h1>
@@ -22,22 +22,23 @@
                     <li class="menu-items" onclick="sidebarMenuOnClickHandle(this);">TODOLIST</li>
                 </ul>
             </aside>
-            <main class="main-container">
+            <main class="main-container"> <!-- 메인 부분 -->
                 <div class="welcome-page-container invisible">
                     <h1 class="welcome-page-title">TODOLIST</h1>
                     <button class="write-link-button" onclick="goToWriteOnClickHandle();">Go to write</button>
                 </div>
-                <div class="todo-page-container">
-                    <header>
+                <div class="todo-page-container"> <!-- ToDoPage 부분 -->
+                    <header> <!-- ToDoPage 머리 부분 -->
                         <div class="todolist-header-items">
-                            <input type="text" class="text-input w-f" placeholder="please enter todo...">
+                            <input type="text" class="text-input w-f" 
+                                placeholder="please enter todo..." onkeyup="addTodoOnKeyUpHandle(event)">
                         </div>
                         <div class="todolist-header-items">
-                            <button class="btn w-f">추가</button>
+                            <button class="btn w-f" onclick="addTodoButtonOnClickHandle();">추가</button>
                         </div>
                     </header>
-                    <ul class="todolist-main-container">
-                        <li class="todolist-items">
+                    <ul class="todolist-main-container"> <!-- ToDoPageList 부분 -->
+                        <li class="todolist-items"> <!-- ToDoList 부분 -->
                             <div class="item-left">
                                 <input type="checkbox" id="complet-chkbox1" class="complet-chkboxs">
                                 <label for="complet-chkbox1"></label>
@@ -59,8 +60,10 @@
         </div>
     </div>
     <script src="./js/index.js"></script>
+    <script src="js/utils.js"></script>
     <script src="./js/routes.js"></script>
     <script src="./js/sidebar.js"></script>
     <script src="./js/welcome.js"></script>
+    <script src="./js/todolist.js"></script>
 </body>
 </html>
